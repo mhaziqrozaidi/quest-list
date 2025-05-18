@@ -80,4 +80,23 @@ class QuestData extends ChangeNotifier {
     _quests.removeWhere((quest) => quest.id == id);
     notifyListeners();
   }
+
+  // New method for editing quests
+  void editQuest(int id, String newTitle, String newDescription) {
+    final questIndex = _quests.indexWhere((quest) => quest.id == id);
+    if (questIndex != -1) {
+      _quests[questIndex].title = newTitle;
+      _quests[questIndex].description = newDescription;
+      notifyListeners();
+    }
+  }
+
+  // Get a quest by ID
+  Quest? getQuestById(int id) {
+    try {
+      return _quests.firstWhere((quest) => quest.id == id);
+    } catch (e) {
+      return null;
+    }
+  }
 }

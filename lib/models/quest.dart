@@ -1,7 +1,7 @@
 class Quest {
   final int id;
-  final String title;
-  final String description;
+  String title;
+  String description;
   bool isComplete;
 
   Quest({
